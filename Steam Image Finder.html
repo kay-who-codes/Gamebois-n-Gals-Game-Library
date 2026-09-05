@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steam Image Finder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #66b0ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .input-group input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            background: #0f0f1a;
+            color: #eee;
+            font-size: 1.1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #a855f7;
+        }
+
+        .input-group input::placeholder {
+            color: #475569;
+        }
+
+        .input-group button {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #66b0ff, #a855f7);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .input-group button:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        .input-group button:active {
+            transform: scale(0.97);
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .quick-links button {
+            padding: 0.4rem 1rem;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .quick-links button:hover {
+            border-color: #a855f7;
+            color: #fff;
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        .status {
+            text-align: center;
+            padding: 1rem;
+            color: #94a3b8;
+            min-height: 3rem;
+        }
+
+        .status.error {
+            color: #f87171;
+        }
+
+        .status.success {
+            color: #34d399;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-card {
+            background: #0f0f1a;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            border-color: #334155;
+        }
+
+        .result-card .image-wrap {
+            background: #0a0a14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            min-height: 180px;
+            position: relative;
+        }
+
+        .result-card .image-wrap img {
+            max-width: 100%;
+            max-height: 250px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #0a0a14;
+        }
+
+        .result-card .image-wrap .no-image {
+            color: #475569;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .result-card .card-body {
+            padding: 1rem;
+        }
+
+        .result-card .card-body .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-card .card-body .filename {
+            font-weight: 600;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .result-card .card-body .url-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .result-card .card-body .url-row input {
+            flex: 1;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            background: #0a0a14;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-family: monospace;
+            outline: none;
+            min-width: 0;
+            width: 100%;
+        }
+
+        .result-card .card-body .url-row input:focus {
+            border-color: #a855f7;
+        }
+
+        .result-card .card-body .copy-btn {
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 6px;
+            background: #1e293b;
+            color: #e2e8f0;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .result-card .card-body .copy-btn:hover {
+            background: #334155;
+        }
+
+        .result-card .card-body .copy-btn.copied {
+            background: #065f46;
+            color: #34d399;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #64748b;
+            padding: 3rem 1rem;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #1e293b;
+            border-top-color: #a855f7;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f0f1a;
+            border: 1px solid #1e293b;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            color: #34d399;
+            font-size: 0.95rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            .input-group input {
+                min-width: 150px;
+                font-size: 1rem;
+            }
+            .input-group button {
+                padding: 0.7rem 1.2rem;
+                font-size: 1rem;
+            }
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎮 Steam Image Finder</h1>
+        <p class="subtitle">Enter a Steam App ID to see all available images</p>
+
+        <div class="input-group">
+            <input type="text" id="appIdInput" placeholder="e.g. 730, 3241660, 271590" />
+            <button id="fetchBtn">🔍 Find Images</button>
+        </div>
+
+        <div class="quick-links">
+            <button data-id="730">CS:GO (730)</button>
+            <button data-id="3241660">R.E.P.O. (3241660)</button>
+            <button data-id="271590">GTA V (271590)</button>
+            <button data-id="570">Dota 2 (570)</button>
+            <button data-id="1174180">Red Dead 2 (1174180)</button>
+            <button data-id="252490">Rust (252490)</button>
+        </div>
+
+        <div class="status" id="status">Enter a Steam ID to get started</div>
+
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p style="color:#64748b; margin-top:0.75rem;">Fetching images...</p>
+        </div>
+
+        <div class="results" id="results"></div>
+    </div>
+
+    <div class="toast" id="toast">✅ Copied to clipboard!</div>
+
+    <script>
+        // ─── Image URL patterns ──────────────────────────────────────────────
+        const IMAGE_PATTERNS = [
+            { name: 'Header (Horizontal)', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/header.jpg` },
+            { name: 'Library Hero (Vertical)', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/library_hero.jpg` },
+            { name: 'Library 600x900', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/library_600x900.jpg` },
+            { name: 'Portrait Capsule', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/portrait_capsule.jpg` },
+            { name: 'Capsule (Main)', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/capsule_616x353.jpg` },
+            { name: 'Capsule (Small)', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/capsule_sm_120.jpg` },
+            { name: 'Hero Capsule', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/hero_capsule.jpg` },
+            { name: 'Page Background', url: (id) =>
+                    `https://steamcdn-a.akamaihd.net/steam/apps/${id}/page_bg_generated_v6b.jpg` },
+            { name: 'Logo (via API)', url: (id) => null }, // special case
+        ];
+
+        // ─── DOM refs ──────────────────────────────────────────────────────────
+        const input = document.getElementById('appIdInput');
+        const fetchBtn = document.getElementById('fetchBtn');
+        const status = document.getElementById('status');
+        const results = document.getElementById('results');
+        const spinner = document.getElementById('loadingSpinner');
+        const toast = document.getElementById('toast');
+
+        let toastTimeout = null;
+
+        // ─── Helpers ──────────────────────────────────────────────────────────
+        function showStatus(msg, type = '') {
+            status.textContent = msg;
+            status.className = 'status ' + type;
+        }
+
+        function showToast(msg = '✅ Copied to clipboard!') {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        function setLoading(loading) {
+            spinner.classList.toggle('active', loading);
+        }
+
+        function getAppId() {
+            const raw = input.value.trim();
+            const match = raw.match(/\d+/);
+            return match ? match[0] : null;
+        }
+
+        // ─── Fetch images ──────────────────────────────────────────────────────
+        async function fetchImages() {
+            const appId = getAppId();
+            if (!appId) {
+                showStatus('⚠️ Please enter a valid Steam App ID (numbers only)', 'error');
+                return;
+            }
+
+            setLoading(true);
+            showStatus(`🔍 Checking images for App ID ${appId}...`, '');
+
+            // First, try to get the game name from Steam API
+            let gameName = `App ID ${appId}`;
+            let logoUrl = null;
+
+            try {
+                const apiRes = await fetch(
+                    `https://store.steampowered.com/api/appdetails?appids=${appId}`
+                );
+                const apiData = await apiRes.json();
+                if (apiData[appId]?.success) {
+                    const data = apiData[appId].data;
+                    gameName = data.name || gameName;
+                    // Some games have a logo in the API
+                    if (data.logo) {
+                        logoUrl = data.logo;
+                    }
+                }
+            } catch (_) { /* ignore API errors, just use fallback */ }
+
+            // Build list of image URLs to check
+            const imageChecks = [];
+
+            // Add all pattern-based URLs
+            for (const pattern of IMAGE_PATTERNS) {
+                if (pattern.name === 'Logo (via API)') continue;
+                const url = pattern.url(appId);
+                if (url) {
+                    imageChecks.push({ name: pattern.name, url, type: 'pattern' });
+                }
+            }
+
+            // Add logo if we got one from API
+            if (logoUrl) {
+                imageChecks.push({ name: 'Logo (from API)', url: logoUrl, type: 'pattern' });
+            }
+
+            // Check each image by attempting to load it
+            const results_data = [];
+
+            for (const item of imageChecks) {
+                const exists = await checkImageExists(item.url);
+                results_data.push({
+                    ...item,
+                    exists,
+                    // Extract filename from URL
+                    filename: item.url.split('/').pop() || 'image',
+                });
+            }
+
+            // Also try the alternate CDN for the most common ones if they failed
+            const altChecks = [
+                { name: 'Header (Alt CDN)', base:
+                    `https://cdn.akamai.steamstatic.com/steam/apps/${appId}/header.jpg` },
+                { name: 'Library 600x900 (Alt CDN)', base:
+                    `https://cdn.akamai.steamstatic.com/steam/apps/${appId}/library_600x900.jpg` },
+            ];
+
+            for (const alt of altChecks) {
+                const exists = await checkImageExists(alt.base);
+                if (exists) {
+                    // Check if we already have this image under a different name
+                    const alreadyExists = results_data.some(r => r.url === alt.base);
+                    if (!alreadyExists) {
+                        results_data.push({
+                            name: alt.name,
+                            url: alt.base,
+                            exists: true,
+                            filename: alt.base.split('/').pop() || 'image',
+                            type: 'pattern'
+                        });
+                    }
+                }
+            }
+
+            // Sort: existing images first
+            results_data.sort((a, b) => (b.exists ? 1 : 0) - (a.exists ? 1 : 0));
+
+            renderResults(appId, gameName, results_data);
+            setLoading(false);
+
+            const existingCount = results_data.filter(r => r.exists).length;
+            if (existingCount === 0) {
+                showStatus(`😕 No images found for App ID ${appId}. Try another ID.`, 'error');
+            } else {
+                showStatus(`✅ Found ${existingCount} image(s) for "${gameName}"`, 'success');
+            }
+        }
+
+        // ─── Check if an image exists ──────────────────────────────────────────
+        function checkImageExists(url) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                let resolved = false;
+
+                const cleanup = () => {
+                    img.onload = null;
+                    img.onerror = null;
+                };
+
+                img.onload = () => {
+                    if (!resolved) {
+                        resolved = true;
+                        cleanup();
+                        resolve(true);
+                    }
+                };
+
+                img.onerror = () => {
+                    if (!resolved) {
+                        resolved = true;
+                        cleanup();
+                        resolve(false);
+                    }
+                };
+
+                // Timeout after 5 seconds to avoid hanging
+                const timeout = setTimeout(() => {
+                    if (!resolved) {
+                        resolved = true;
+                        cleanup();
+                        resolve(false);
+                    }
+                }, 5000);
+
+                img.src = url;
+                // If image is already cached, onload might fire synchronously
+                if (img.complete) {
+                    if (!resolved) {
+                        resolved = true;
+                        clearTimeout(timeout);
+                        cleanup();
+                        resolve(img.naturalWidth > 0 && img.naturalHeight > 0);
+                    }
+                }
+            });
+        }
+
+        // ─── Render results ──────────────────────────────────────────────────────
+        function renderResults(appId, gameName, data) {
+            const existing = data.filter(r => r.exists);
+
+            if (existing.length === 0) {
+                results.innerHTML = `
+                    <div class="no-results">
+                        <p style="font-size:2rem; margin-bottom:0.5rem;">🖼️</p>
+                        <p>No images found for <strong>${gameName}</strong></p>
+                        <p style="font-size:0.85rem; color:#475569; margin-top:0.5rem;">
+                            Try a different App ID or check that the game exists on Steam.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            results.innerHTML = existing.map((item, index) => `
+                <div class="result-card" style="animation: fadeIn 0.3s ease ${index * 0.05}s both;">
+                    <div class="image-wrap">
+                        <img src="${item.url}" alt="${item.name}" loading="lazy" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        />
+                        <div class="no-image" style="display:none;">⚠️ Failed to load</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="label">Image Type</div>
+                        <div class="filename">${item.name}</div>
+                        <div class="url-row">
+                            <input type="text" value="${item.url}" readonly spellcheck="false" 
+                                   id="url-input-${index}" />
+                            <button class="copy-btn" data-input-id="url-input-${index}" data-url="${item.url}">
+                                📋 Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add copy handlers
+            results.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const url = btn.dataset.url;
+                    copyToClipboard(url, btn);
+                });
+            });
+
+            // Add fade-in animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(12px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            results.appendChild(style);
+        }
+
+        // ─── Copy to clipboard ──────────────────────────────────────────────────
+        function copyToClipboard(text, btn) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('✅ Copied: ' + text.substring(0, 60) + (text.length > 60 ? '...' : ''));
+                    highlightButton(btn);
+                }).catch(() => {
+                    fallbackCopy(text, btn);
+                });
+            } else {
+                fallbackCopy(text, btn);
+            }
+        }
+
+        function fallbackCopy(text, btn) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('✅ Copied to clipboard!');
+                highlightButton(btn);
+            } catch (_) {
+                showToast('❌ Failed to copy. Select the text manually.', 'error');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function highlightButton(btn) {
+            btn.classList.add('copied');
+            btn.textContent = '✅ Copied!';
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.textContent = '📋 Copy';
+            }, 2000);
+        }
+
+        // ─── Event Listeners ──────────────────────────────────────────────────
+
+        // Fetch on button click
+        fetchBtn.addEventListener('click', fetchImages);
+
+        // Fetch on Enter key
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') fetchImages();
+        });
+
+        // Quick links
+        document.querySelectorAll('.quick-links button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                input.value = btn.dataset.id;
+                fetchImages();
+            });
+        });
+
+        // Auto-focus input
+        input.focus();
+
+        // ─── Also allow pasting full Steam URLs ─────────────────────────────
+        input.addEventListener('input', () => {
+            const val = input.value;
+            // If they paste a full Steam URL, extract the app ID
+            const match = val.match(/store\.steampowered\.com\/app\/(\d+)/);
+            if (match) {
+                input.value = match[1];
+            }
+        });
+
+        console.log('🎮 Steam Image Finder ready!');
+        console.log('Enter a Steam App ID (e.g., 730 for CS:GO)');
+    </script>
+
+</body>
+</html>
