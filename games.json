@@ -22,7 +22,7 @@
         "tags": ["Co-op", "Exploration", "Funny"],
         "image": "https://imgs.search.brave.com/_ghi1HbCbpqqfBAdztJ4MCQ1HmxlppeEoEfICEM9UEE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaWdkYi5jb20v/aWdkYi9pbWFnZS91/cGxvYWQvdF83MjBw/L2NvYTFpMS5qcGc",
         "url": "https://store.steampowered.com/app/3527290/PEAK/",
-        "popularity": "8",
+        "popularity": "7",
         "hoverColor": "#7c33e6"
     },
     {
@@ -30,7 +30,7 @@
         "tags": ["Co-op", "FPS", "Funny", "PvP"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/550/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/550/Left_4_Dead_2/",
-        "popularity": "8",
+        "popularity": "7",
         "hoverColor": "#CBE657"
     },
     {
@@ -38,7 +38,7 @@
         "tags": ["PvP", "Board/Card"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/286160/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/286160/Tabletop_Simulator/",
-        "popularity": "7",
+        "popularity": "6",
         "hoverColor": "#ffa726"
     },
             {
@@ -54,7 +54,7 @@
         "tags": ["Co-op", "Spooky"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/739630/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/739630/Phasmophobia",
-        "popularity": "5",
+        "popularity": "4",
         "hoverColor": "#696969"
     },
     {
@@ -62,7 +62,7 @@
         "tags": ["Co-op", "Funny", "Spooky"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/2881650/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/2881650/Content_Warning",
-        "popularity": "5",
+        "popularity": "4",
         "hoverColor": "#FFD700"
     },
     {
@@ -70,7 +70,7 @@
         "tags": ["Co-op", "PvP", "Shooter"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/1808500/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/1808500/ARC_Raiders",
-        "popularity": "5",
+        "popularity": "4",
         "hoverColor": "#9330a4"
     },
     {
@@ -126,7 +126,7 @@
         "tags": ["Co-op", "PvP", "Social Deduction"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/945360/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/945360/Among_Us/",
-        "popularity": "5",
+        "popularity": "6",
         "hoverColor": "#c5120c"
     },
     {
@@ -142,7 +142,7 @@
         "tags": ["Co-op", "PvP", "Exploration", "Survival", "Creative"],
         "image": "https://preview.redd.it/which-one-is-the-superior-cover-art-v0-g4urr2d8zu3d1.png?width=1080&crop=smart&auto=webp&s=4ad01254b4f3bd2f8997aad4dd47a6ee40a6e426",
         "url": "https://www.minecraft.net/",
-        "popularity": "7",
+        "popularity": "8",
         "hoverColor": "#32CD32"
     },
     {
