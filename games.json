@@ -160,6 +160,22 @@
         "url": "https://lichess.org/",
         "popularity": "3",
         "hoverColor": "#f1f1f1"
+    },
+    {
+        "name": "RV There Yet",
+        "tags": ["Co-op", "Funny"],
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/fc6856c47b9c695c24a2e64c60b619d7762b9717/capsule_616x353.jpg?t=1761050176",
+        "url": "https://store.steampowered.com/app/3949040/RV_There_Yet/",
+        "popularity": "5",
+        "hoverColor": "#e49f16"
+    },
+    {
+        "name": "Ultimate Drinking Cards",
+        "tags": ["Party", "Funny", "Board/Card"],
+        "image": "https://raw.githubusercontent.com/kay-who-codes/Ultimate-Drinking-Cards/main/Non-App/App%20Image.png",
+        "url": "https://kay-who-codes.github.io/Ultimate-Drinking-Cards/",
+        "popularity": "5",
+        "hoverColor": "#f9f9f9"
     }
     ],
 
@@ -168,13 +184,6 @@
 
         "wishlist": [
     {
-        "name": "RV There Yet",
-        "tags": ["Co-op", "Funny"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/fc6856c47b9c695c24a2e64c60b619d7762b9717/capsule_616x353.jpg?t=1761050176",
-        "url": "https://store.steampowered.com/app/3949040/RV_There_Yet/",
-        "hoverColor": "#e49f16"
-    },
-            {
         "name": "Crashout Crew",
         "tags": ["Action", "Co-op", "Driving"],
         "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3583210/93b822f30cab98333b8f7f4dd43ce543f4c8b355/capsule_616x353.jpg?t=1759425887",
