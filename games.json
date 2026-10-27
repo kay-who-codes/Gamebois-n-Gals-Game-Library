@@ -10,12 +10,52 @@
         "hoverColor": "#e49f16"
     },
     {
+        "name": "Jackbox Party Packs",
+        "tags": ["PvP", "Co-op", "Funny", "Party"],
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/331670/library_600x900.jpg",
+        "url": "https://store.steampowered.com/developer/jackboxgames",
+        "popularity": "7",
+        "hoverColor": "#f9ff79"
+    },
+    {
+        "name": "Pummel Party",
+        "tags": ["PvP", "Funny", "Party"],
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/880940/library_600x900.jpg",
+        "url": "https://store.steampowered.com/app/880940/Pummel_Party/",
+        "popularity": "8",
+        "hoverColor": "#47a6f9"
+    },
+    {
+        "name": "Spider Roulette",
+        "tags": ["PvP", "Funny", "Spooky"],
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/3900650/library_600x900.jpg",
+        "url": "https://store.steampowered.com/app/3900650/Spider_Roulette/",
+        "popularity": "7",
+        "hoverColor": "#9330a4"
+    },
+    {
+        "name": "BOMBANANA!",
+        "tags": ["PvP", "Funny"],
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/4656000/library_600x900.jpg",
+        "url": "https://store.steampowered.com/app/4656000/BOMBANANA/",
+        "popularity": "6",
+        "hoverColor": "#c5120c"
+    },
+    {
         "name": "Lethal Company",
         "tags": ["Co-op", "Spooky"],
         "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/library_600x900.jpg",
         "url": "https://store.steampowered.com/app/1966720/Lethal_Company/",
         "popularity": "5",
         "hoverColor": "#c5120c"
+    },
+    {
+        "name": "Buckshot Roulette",
+        "tags": ["PvP", "Spooky"],
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2835570/library_600x900.jpg",
+        "url": "https://store.steampowered.com/app/2835570/Buckshot_Roulette/",
+        "popularity": "4",
+        "hoverColor": "#9b7c65"
     },
     {
         "name": "PEAK",
@@ -41,7 +81,7 @@
         "popularity": "6",
         "hoverColor": "#ffa726"
     },
-            {
+    {
         "name": "Helldivers 2",
         "tags": ["Co-op", "Exploration", "Survival", "Shooter"],
         "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/14293cf6c4eeb6959b9333ecd42fcc021a8fc1e3/header.jpg",
