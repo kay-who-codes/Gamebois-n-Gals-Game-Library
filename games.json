@@ -28,7 +28,7 @@
     {
         "name": "Spider Roulette",
         "tags": ["PvP", "Funny", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/3900650/library_600x900.jpg",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3900650/27437858b99c7faccf9fa84cb85002da4f620cb0/library_capsule.jpg",
         "url": "https://store.steampowered.com/app/3900650/Spider_Roulette/",
         "popularity": "7",
         "hoverColor": "#9330a4"
@@ -36,7 +36,7 @@
     {
         "name": "BOMBANANA!",
         "tags": ["PvP", "Funny"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/4656000/library_600x900.jpg",
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4656000/feaeb8f6d4b829252a902f0acd2d8fd385271871/library_capsule.jpg",
         "url": "https://store.steampowered.com/app/4656000/BOMBANANA/",
         "popularity": "6",
         "hoverColor": "#c5120c"
@@ -196,7 +196,7 @@
     {
         "name": "Chess",
         "tags": ["PvP", "Board/Card", "Strategy"],
-        "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgames.lol%2Fwp-content%2Fuploads%2F2019%2F05%2Flichess-free-online-pc-full-version.jpg&f=1&nofb=1&ipt=9cf49bdf8ab691f582b9b4c9149104bd020d70703ad842c293d70c6f70480e62",
+        "image": "https://imgs.search.brave.com/lOGK9n_LZQZANWslWAz3vQQmHFkF31DiH3xQ-OxAerc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ0L2Nj/L2EwLzQ0Y2NhMDZh/Mzg5MGM5Y2ZhODQx/NjkxMWViZTlkY2E2/LmpwZw",
         "url": "https://lichess.org/",
         "popularity": "3",
         "hoverColor": "#f1f1f1"
