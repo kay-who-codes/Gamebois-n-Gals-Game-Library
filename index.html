@@ -282,6 +282,21 @@
       padding: 0 1px;
     }
 
+    /* player count */
+    .players-input {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-height: 42px;
+    }
+    .players-input::placeholder { color: var(--text-dim); }
+    .players-input:focus { border-color: var(--library); }
+
     /* sections */
     .section-header {
       font-family: "Silkscreen", monospace;
@@ -333,10 +348,11 @@
 
     .game-info { padding: 0.65rem 0.7rem 0.8rem; }
     .game-name { font-size: 0.88rem; font-weight: 600; margin: 0 0 0.35rem; line-height: 1.3; }
-    .game-popularity { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .game-popularity { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 0.4rem; font-size: 0.85rem; }
     .stars { color: var(--hotpink); }
     .no-rating { color: var(--text-dim); font-size: 0.72rem; font-style: italic; }
     .rating-value { color: var(--text-dim); font-size: 0.72rem; }
+    .game-players { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.5rem; }
 
     .game-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .game-tag {
@@ -384,7 +400,7 @@
 <main>
   <div class="controls">
     <div class="controls-top-row">
-      <input type="text" id="searchBar" class="search-bar" placeholder="Search by name, tag, or popularity (e.g. '8')" autocomplete="off" />
+      <input type="text" id="searchBar" class="search-bar" placeholder="Search by name, tag, popularity (e.g. '8') or players (e.g. '4p')" autocomplete="off" />
       <button type="button" id="clearFiltersBtn" class="clear-filters-btn hidden">Clear filters</button>
     </div>
 
@@ -411,6 +427,12 @@
           </div>
           <span class="popularity-display" id="popularityDisplay">Any</span>
         </div>
+      </div>
+
+      <!-- players -->
+      <div class="filter-group" style="flex: 1 1 140px;">
+        <label class="filter-label" for="playersInput">Number of Players:</label>
+        <input type="number" id="playersInput" class="players-input" min="1" max="99" step="1" placeholder="Any" inputmode="numeric" />
       </div>
 
       <!-- sort -->
@@ -468,11 +490,33 @@
   }
   function cssEscape(str) { return window.CSS?.escape ? CSS.escape(str) : str.replace(/[^a-zA-Z0-9_-]/g, '\\$&'); }
 
+  // Parses "3", "1-4" or "1+" into { min, max } (max is Infinity for "N+"). Returns null if missing/invalid.
+  function parsePlayers(p) {
+    if (p == null || p === '') return null;
+    const m = String(p).trim().match(/^(\d+)\s*(\+|[-–]\s*(\d+))?$/);
+    if (!m) return null;
+    const min = parseInt(m[1], 10);
+    const max = m[2] === undefined ? min : (m[2] === '+' ? Infinity : parseInt(m[3], 10));
+    return { min, max };
+  }
+  // True if the game supports exactly `count` players. Games with no player info are never excluded.
+  function supportsPlayers(game, count) {
+    if (!count) return true;
+    const pc = parsePlayers(game.players);
+    return !pc || (count >= pc.min && count <= pc.max);
+  }
+  // Search shorthand: "4p", "4 p", "4 player", "4 players"
+  function parsePlayerSearch(q) {
+    const m = q.trim().match(/^(\d+)\s*(?:p|players?)$/i);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
   // ---- state ----
   let games = [], wishlistGames = [], allTags = [], tagCounts = {};
   let selectedTags = [];
   let searchQuery = "";
   let minPopularity = 0;
+  let playerCount = 0;
   let sortMode = "popularity-desc";
   let dataLoaded = false;
 
@@ -484,6 +528,7 @@
   const searchBar = document.getElementById('searchBar');
   const popularitySlider = document.getElementById('popularitySlider');
   const popularityDisplay = document.getElementById('popularityDisplay');
+  const playersInput = document.getElementById('playersInput');
   const sortSelect = document.getElementById('sortSelect');
   const clearFiltersBtn = document.getElementById('clearFiltersBtn');
   const libraryEmptyState = document.getElementById('libraryEmptyState');
@@ -511,6 +556,7 @@
     wishlistGrid.style.display = 'none';
     searchBar.disabled = true;
     popularitySlider.disabled = true;
+    playersInput.disabled = true;
     sortSelect.disabled = true;
     clearFiltersBtn.classList.add('hidden');
     dropdownTrigger.style.opacity = '0.5';
@@ -553,6 +599,8 @@
       searchBar.disabled = false;
       popularitySlider.addEventListener('input', handlePopularityFilter);
       popularitySlider.disabled = false;
+      playersInput.addEventListener('input', handlePlayersFilter);
+      playersInput.disabled = false;
       sortSelect.addEventListener('change', handleSortChange);
       sortSelect.disabled = false;
       clearFiltersBtn.addEventListener('click', handleClearFilters);
@@ -646,16 +694,27 @@
   }
 
   function getFilteredGames(list) {
+    const searchLower = searchQuery.toLowerCase();
+    const searchPlayers = parsePlayerSearch(searchQuery); // e.g. "4p" / "4 players"
     return list.filter(game => {
       const rating = getPopularity(game);
-      const searchLower = searchQuery.toLowerCase();
-      const matchSearch = searchQuery === '' ||
-        game.name.toLowerCase().includes(searchLower) ||
-        (game.tags || []).some(t => t.toLowerCase().includes(searchLower)) ||
-        (rating > 0 && rating.toString().includes(searchLower));
+      let matchSearch;
+      if (searchQuery === '') {
+        matchSearch = true;
+      } else if (searchPlayers !== null) {
+        // Player shorthand: only games that explicitly list a range covering that count
+        matchSearch = parsePlayers(game.players) !== null && supportsPlayers(game, searchPlayers);
+      } else {
+        matchSearch =
+          game.name.toLowerCase().includes(searchLower) ||
+          (game.tags || []).some(t => t.toLowerCase().includes(searchLower)) ||
+          (rating > 0 && rating.toString().includes(searchLower)) ||
+          (game.players != null && String(game.players).toLowerCase() === searchLower);
+      }
       const matchTags = selectedTags.length === 0 || selectedTags.every(t => (game.tags || []).includes(t));
       const matchPop = minPopularity === 0 || rating >= minPopularity;
-      return matchSearch && matchTags && matchPop;
+      const matchPlayers = supportsPlayers(game, playerCount);
+      return matchSearch && matchTags && matchPop && matchPlayers;
     });
   }
 
@@ -673,6 +732,7 @@
         <div class="game-info">
           <h3 class="game-name">${game.name}</h3>
           <div class="game-popularity"><span class="stars">${renderStars(rating)}</span>${rating ? `<span class="rating-value">${rating}/10</span>` : ''}</div>
+          ${game.players ? `<div class="game-players">👥 ${game.players} players</div>` : ''}
           <div class="game-tags">${(game.tags||[]).map(t => `<span class="game-tag" data-tag="${t}" role="button" tabindex="0">${t}</span>`).join('')}</div>
         </div>
       </div>
@@ -771,19 +831,21 @@
     wishlistResultsInfo.textContent = `Showing ${filtered.length} of ${wishlistGames.length} wishlist games`;
   }
   function updateEmptyState(el, count) { el.classList.toggle('hidden', count !== 0); }
-  function isAnyFilterActive() { return searchQuery !== '' || selectedTags.length > 0 || minPopularity > 0 || sortMode !== 'popularity-desc'; }
+  function isAnyFilterActive() { return searchQuery !== '' || selectedTags.length > 0 || minPopularity > 0 || playerCount > 0 || sortMode !== 'popularity-desc'; }
   function updateClearFiltersVisibility() { clearFiltersBtn.classList.toggle('hidden', !isAnyFilterActive()); }
 
   // ---- event handlers ----
   function handleSearch(e) { if (!dataLoaded) return; searchQuery = e.target.value.trim(); updateDisplay(); updateClearFiltersVisibility(); }
   function handlePopularityFilter(e) { if (!dataLoaded) return; minPopularity = parseInt(e.target.value,10); popularityDisplay.textContent = minPopularity === 0 ? 'Any' : `${minPopularity}+`; updateDisplay(); updateClearFiltersVisibility(); }
+  function handlePlayersFilter(e) { if (!dataLoaded) return; const n = parseInt(e.target.value, 10); playerCount = isNaN(n) || n < 1 ? 0 : n; updateDisplay(); updateClearFiltersVisibility(); }
   function handleSortChange(e) { if (!dataLoaded) return; sortMode = e.target.value; renderGames(); renderWishlistGames(); refreshActiveTagChips(); updateResultsInfo(); updateWishlistResultsInfo(); updateClearFiltersVisibility(); }
   function handleClearFilters() {
     if (!dataLoaded) return;
-    searchQuery = ''; selectedTags = []; minPopularity = 0; sortMode = 'popularity-desc';
+    searchQuery = ''; selectedTags = []; minPopularity = 0; playerCount = 0; sortMode = 'popularity-desc';
     searchBar.value = '';
     popularitySlider.value = 0;
     popularityDisplay.textContent = 'Any';
+    playersInput.value = '';
     sortSelect.value = 'popularity-desc';
     // Sync dropdown checkboxes after clearing
     syncDropdownCheckboxes();

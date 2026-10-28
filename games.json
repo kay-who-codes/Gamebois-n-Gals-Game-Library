@@ -1,269 +1,428 @@
 { 
-    "games": [
 
+  "games": [
     {
-        "name": "R.E.P.O.",
-        "tags": ["Co-op", "Funny", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/3241660/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/3241660/REPO/",
-        "popularity": "9",
-        "hoverColor": "#e49f16"
+      "name": "R.E.P.O.",
+      "tags": [
+        "Co-op",
+        "Funny",
+        "Spooky"
+      ],
+      "players": "1-6",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/3241660/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/3241660/REPO/",
+      "popularity": "9",
+      "hoverColor": "#e49f16"
     },
     {
-        "name": "Jackbox Party Packs",
-        "tags": ["PvP", "Co-op", "Funny", "Party"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/331670/library_600x900.jpg",
-        "url": "https://store.steampowered.com/developer/jackboxgames",
-        "popularity": "7",
-        "hoverColor": "#f9ff79"
+      "name": "Jackbox Party Packs",
+      "tags": [
+        "PvP",
+        "Co-op",
+        "Funny",
+        "Party"
+      ],
+      "players": "2-8",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/331670/library_600x900.jpg",
+      "url": "https://store.steampowered.com/developer/jackboxgames",
+      "popularity": "7",
+      "hoverColor": "#f9ff79"
     },
     {
-        "name": "Pummel Party",
-        "tags": ["PvP", "Funny", "Party"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/880940/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/880940/Pummel_Party/",
-        "popularity": "8",
-        "hoverColor": "#47a6f9"
+      "name": "Pummel Party",
+      "tags": [
+        "PvP",
+        "Funny",
+        "Party"
+      ],
+      "players": "2-8",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/880940/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/880940/Pummel_Party/",
+      "popularity": "8",
+      "hoverColor": "#47a6f9"
     },
     {
-        "name": "Spider Roulette",
-        "tags": ["PvP", "Funny", "Spooky"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3900650/27437858b99c7faccf9fa84cb85002da4f620cb0/library_capsule.jpg",
-        "url": "https://store.steampowered.com/app/3900650/Spider_Roulette/",
-        "popularity": "7",
-        "hoverColor": "#9330a4"
+      "name": "Spider Roulette",
+      "tags": [
+        "PvP",
+        "Funny",
+        "Spooky"
+      ],
+      "players": "2-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3900650/27437858b99c7faccf9fa84cb85002da4f620cb0/library_capsule.jpg",
+      "url": "https://store.steampowered.com/app/3900650/Spider_Roulette/",
+      "popularity": "7",
+      "hoverColor": "#9330a4"
     },
     {
-        "name": "BOMBANANA!",
-        "tags": ["PvP", "Funny"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4656000/feaeb8f6d4b829252a902f0acd2d8fd385271871/library_capsule.jpg",
-        "url": "https://store.steampowered.com/app/4656000/BOMBANANA/",
-        "popularity": "6",
-        "hoverColor": "#c5120c"
+      "name": "BOMBANANA!",
+      "tags": [
+        "PvP",
+        "Funny"
+      ],
+      "players": "3",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4656000/feaeb8f6d4b829252a902f0acd2d8fd385271871/library_capsule.jpg",
+      "url": "https://store.steampowered.com/app/4656000/BOMBANANA/",
+      "popularity": "6",
+      "hoverColor": "#c5120c"
     },
     {
-        "name": "Lethal Company",
-        "tags": ["Co-op", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/1966720/Lethal_Company/",
-        "popularity": "5",
-        "hoverColor": "#c5120c"
+      "name": "Lethal Company",
+      "tags": [
+        "Co-op",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/1966720/Lethal_Company/",
+      "popularity": "5",
+      "hoverColor": "#c5120c"
     },
     {
-        "name": "Buckshot Roulette",
-        "tags": ["PvP", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2835570/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/2835570/Buckshot_Roulette/",
-        "popularity": "4",
-        "hoverColor": "#9b7c65"
+      "name": "Buckshot Roulette",
+      "tags": [
+        "PvP",
+        "Spooky"
+      ],
+      "players": "2",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/2835570/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/2835570/Buckshot_Roulette/",
+      "popularity": "4",
+      "hoverColor": "#9b7c65"
     },
     {
-        "name": "PEAK",
-        "tags": ["Co-op", "Exploration", "Funny"],
-        "image": "https://imgs.search.brave.com/_ghi1HbCbpqqfBAdztJ4MCQ1HmxlppeEoEfICEM9UEE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaWdkYi5jb20v/aWdkYi9pbWFnZS91/cGxvYWQvdF83MjBw/L2NvYTFpMS5qcGc",
-        "url": "https://store.steampowered.com/app/3527290/PEAK/",
-        "popularity": "7",
-        "hoverColor": "#7c33e6"
+      "name": "PEAK",
+      "tags": [
+        "Co-op",
+        "Exploration",
+        "Funny"
+      ],
+      "players": "1-4",
+      "image": "https://imgs.search.brave.com/_ghi1HbCbpqqfBAdztJ4MCQ1HmxlppeEoEfICEM9UEE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaWdkYi5jb20v/aWdkYi9pbWFnZS91/cGxvYWQvdF83MjBw/L2NvYTFpMS5qcGc",
+      "url": "https://store.steampowered.com/app/3527290/PEAK/",
+      "popularity": "7",
+      "hoverColor": "#7c33e6"
     },
     {
-        "name": "Left 4 Dead 2",
-        "tags": ["Co-op", "FPS", "Funny", "PvP"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/550/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/550/Left_4_Dead_2/",
-        "popularity": "7",
-        "hoverColor": "#CBE657"
+      "name": "Left 4 Dead 2",
+      "tags": [
+        "Co-op",
+        "FPS",
+        "Funny",
+        "PvP"
+      ],
+      "players": "1-8",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/550/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/550/Left_4_Dead_2/",
+      "popularity": "7",
+      "hoverColor": "#CBE657"
     },
     {
-        "name": "Tabletop Simulator",
-        "tags": ["PvP", "Board/Card"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/286160/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/286160/Tabletop_Simulator/",
-        "popularity": "6",
-        "hoverColor": "#ffa726"
+      "name": "Tabletop Simulator",
+      "tags": [
+        "PvP",
+        "Board/Card"
+      ],
+      "players": "1-10",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/286160/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/286160/Tabletop_Simulator/",
+      "popularity": "6",
+      "hoverColor": "#ffa726"
     },
     {
-        "name": "Helldivers 2",
-        "tags": ["Co-op", "Exploration", "Survival", "Shooter"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/14293cf6c4eeb6959b9333ecd42fcc021a8fc1e3/header.jpg",
-        "url": "https://store.steampowered.com/app/553850/HELLDIVERS_2/",
-        "popularity": "4",
-        "hoverColor": "#f9ff79"
+      "name": "Helldivers 2",
+      "tags": [
+        "Co-op",
+        "Exploration",
+        "Survival",
+        "Shooter"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/14293cf6c4eeb6959b9333ecd42fcc021a8fc1e3/header.jpg",
+      "url": "https://store.steampowered.com/app/553850/HELLDIVERS_2/",
+      "popularity": "4",
+      "hoverColor": "#f9ff79"
     },
     {
-        "name": "Phasmophobia",
-        "tags": ["Co-op", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/739630/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/739630/Phasmophobia",
-        "popularity": "4",
-        "hoverColor": "#696969"
+      "name": "Phasmophobia",
+      "tags": [
+        "Co-op",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/739630/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/739630/Phasmophobia",
+      "popularity": "4",
+      "hoverColor": "#696969"
     },
     {
-        "name": "Content Warning",
-        "tags": ["Co-op", "Funny", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2881650/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/2881650/Content_Warning",
-        "popularity": "4",
-        "hoverColor": "#FFD700"
+      "name": "Content Warning",
+      "tags": [
+        "Co-op",
+        "Funny",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/2881650/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/2881650/Content_Warning",
+      "popularity": "4",
+      "hoverColor": "#FFD700"
     },
     {
-        "name": "ARC Raiders",
-        "tags": ["Co-op", "PvP", "Shooter"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1808500/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/1808500/ARC_Raiders",
-        "popularity": "4",
-        "hoverColor": "#9330a4"
+      "name": "ARC Raiders",
+      "tags": [
+        "Co-op",
+        "PvP",
+        "Shooter"
+      ],
+      "players": "1-3",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/1808500/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/1808500/ARC_Raiders",
+      "popularity": "4",
+      "hoverColor": "#9330a4"
     },
     {
-        "name": "Ghost Watchers",
-        "tags": ["Co-op", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1850740/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/1850740/Ghost_Watchers",
-        "popularity": "3",
-        "hoverColor": "#9b7c65"
+      "name": "Ghost Watchers",
+      "tags": [
+        "Co-op",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/1850740/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/1850740/Ghost_Watchers",
+      "popularity": "3",
+      "hoverColor": "#9b7c65"
     },
     {
-        "name": "Rocket League",
-        "tags": ["PvP", "Driving", "Sport", "Free to Play"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/252950/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/252950/Rocket_League/",
-        "popularity": "4",
-        "hoverColor": "#47a6f9"
+      "name": "Rocket League",
+      "tags": [
+        "PvP",
+        "Driving",
+        "Sport",
+        "Free to Play"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/252950/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/252950/Rocket_League/",
+      "popularity": "4",
+      "hoverColor": "#47a6f9"
     },
     {
-        "name": "Splitgate",
-        "tags": ["PvP", "Shooter", "Free to Play"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2918300/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/2918300/Splitgate_2_Beta",
-        "popularity": "3",
-        "hoverColor": "#f9b53f"
+      "name": "Splitgate",
+      "tags": [
+        "PvP",
+        "Shooter",
+        "Free to Play"
+      ],
+      "players": "1-6",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/2918300/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/2918300/Splitgate_2_Beta",
+      "popularity": "3",
+      "hoverColor": "#f9b53f"
     },
     {
-        "name": "Guilty As Sock",
-        "tags": ["Co-op", "PvP", "Funny", "Roleplay"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/3400930/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/3400930/Guilty_as_Sock/",
-        "popularity": "7",
-        "hoverColor": "#FFD700"
+      "name": "Guilty As Sock",
+      "tags": [
+        "Co-op",
+        "PvP",
+        "Funny",
+        "Roleplay"
+      ],
+      "players": "3-9",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/3400930/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/3400930/Guilty_as_Sock/",
+      "popularity": "7",
+      "hoverColor": "#FFD700"
     },
     {
-        "name": "Murky Divers",
-        "tags": ["Co-op", "Spooky"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2963880/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/2963880/Murky_Divers",
-        "popularity": "2",
-        "hoverColor": "#4ba333"
+      "name": "Murky Divers",
+      "tags": [
+        "Co-op",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/2963880/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/2963880/Murky_Divers",
+      "popularity": "2",
+      "hoverColor": "#4ba333"
     },
     {
-        "name": "Nuclear Nightmare",
-        "tags": ["Co-op", "PvP", "Social Deduction"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/2909110/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/2909110/Nuclear_Nightmare",
-        "popularity": "1",
-        "hoverColor": "#47a6f9"
+      "name": "Nuclear Nightmare",
+      "tags": [
+        "Co-op",
+        "PvP",
+        "Social Deduction"
+      ],
+      "players": "4-10",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/2909110/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/2909110/Nuclear_Nightmare",
+      "popularity": "1",
+      "hoverColor": "#47a6f9"
     },
     {
-        "name": "Among Us",
-        "tags": ["Co-op", "PvP", "Social Deduction"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/945360/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/945360/Among_Us/",
-        "popularity": "6",
-        "hoverColor": "#c5120c"
+      "name": "Among Us",
+      "tags": [
+        "Co-op",
+        "PvP",
+        "Social Deduction"
+      ],
+      "players": "4-15",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/945360/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/945360/Among_Us/",
+      "popularity": "6",
+      "hoverColor": "#c5120c"
     },
     {
-        "name": "Liar's Bar",
-        "tags": ["PvP", "Board/Card", "Social Deduction"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/3097560/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/3097560/Liars_Bar",
-        "popularity": "1",
-        "hoverColor": "#c5120c"
+      "name": "Liar's Bar",
+      "tags": [
+        "PvP",
+        "Board/Card",
+        "Social Deduction"
+      ],
+      "players": "2-4",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/3097560/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/3097560/Liars_Bar",
+      "popularity": "1",
+      "hoverColor": "#c5120c"
     },
     {
-        "name": "Minecraft",
-        "tags": ["Co-op", "PvP", "Exploration", "Survival", "Creative"],
-        "image": "https://preview.redd.it/which-one-is-the-superior-cover-art-v0-g4urr2d8zu3d1.png?width=1080&crop=smart&auto=webp&s=4ad01254b4f3bd2f8997aad4dd47a6ee40a6e426",
-        "url": "https://www.minecraft.net/",
-        "popularity": "8",
-        "hoverColor": "#32CD32"
+      "name": "Minecraft",
+      "tags": [
+        "Co-op",
+        "PvP",
+        "Exploration",
+        "Survival",
+        "Creative"
+      ],
+      "players": "1+",
+      "image": "https://preview.redd.it/which-one-is-the-superior-cover-art-v0-g4urr2d8zu3d1.png?width=1080&crop=smart&auto=webp&s=4ad01254b4f3bd2f8997aad4dd47a6ee40a6e426",
+      "url": "https://www.minecraft.net/",
+      "popularity": "8",
+      "hoverColor": "#32CD32"
     },
     {
-        "name": "Team Fortress 2",
-        "tags": ["PvP", "Shooter", "Action", "Free to Play"],
-        "image": "https://steamcdn-a.akamaihd.net/steam/apps/440/library_600x900.jpg",
-        "url": "https://store.steampowered.com/app/440/Team_Fortress_2/",
-        "popularity": "2",
-        "hoverColor": "#e77426"
+      "name": "Team Fortress 2",
+      "tags": [
+        "PvP",
+        "Shooter",
+        "Action",
+        "Free to Play"
+      ],
+      "players": "2+",
+      "image": "https://steamcdn-a.akamaihd.net/steam/apps/440/library_600x900.jpg",
+      "url": "https://store.steampowered.com/app/440/Team_Fortress_2/",
+      "popularity": "2",
+      "hoverColor": "#e77426"
     },
     {
-        "name": "Chess",
-        "tags": ["PvP", "Board/Card", "Strategy"],
-        "image": "https://imgs.search.brave.com/lOGK9n_LZQZANWslWAz3vQQmHFkF31DiH3xQ-OxAerc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ0L2Nj/L2EwLzQ0Y2NhMDZh/Mzg5MGM5Y2ZhODQx/NjkxMWViZTlkY2E2/LmpwZw",
-        "url": "https://lichess.org/",
-        "popularity": "3",
-        "hoverColor": "#f1f1f1"
+      "name": "Chess",
+      "tags": [
+        "PvP",
+        "Board/Card",
+        "Strategy"
+      ],
+      "players": "2",
+      "image": "https://imgs.search.brave.com/lOGK9n_LZQZANWslWAz3vQQmHFkF31DiH3xQ-OxAerc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ0L2Nj/L2EwLzQ0Y2NhMDZh/Mzg5MGM5Y2ZhODQx/NjkxMWViZTlkY2E2/LmpwZw",
+      "url": "https://lichess.org/",
+      "popularity": "3",
+      "hoverColor": "#f1f1f1"
     },
     {
-        "name": "RV There Yet",
-        "tags": ["Co-op", "Funny"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/fc6856c47b9c695c24a2e64c60b619d7762b9717/capsule_616x353.jpg?t=1761050176",
-        "url": "https://store.steampowered.com/app/3949040/RV_There_Yet/",
-        "popularity": "5",
-        "hoverColor": "#e49f16"
+      "name": "RV There Yet",
+      "tags": [
+        "Co-op",
+        "Funny"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3949040/fc6856c47b9c695c24a2e64c60b619d7762b9717/capsule_616x353.jpg?t=1761050176",
+      "url": "https://store.steampowered.com/app/3949040/RV_There_Yet/",
+      "popularity": "5",
+      "hoverColor": "#e49f16"
     },
     {
-        "name": "Ultimate Drinking Cards",
-        "tags": ["Party", "Funny", "Board/Card"],
-        "image": "https://raw.githubusercontent.com/kay-who-codes/Ultimate-Drinking-Cards/main/Non-App/App%20Image.png",
-        "url": "https://kay-who-codes.github.io/Ultimate-Drinking-Cards/",
-        "popularity": "5",
-        "hoverColor": "#f9f9f9"
+      "name": "Ultimate Drinking Cards",
+      "tags": [
+        "Party",
+        "Funny",
+        "Board/Card"
+      ],
+      "players": "2+",
+      "image": "https://raw.githubusercontent.com/kay-who-codes/Ultimate-Drinking-Cards/main/Non-App/App%20Image.png",
+      "url": "https://kay-who-codes.github.io/Ultimate-Drinking-Cards/",
+      "popularity": "5",
+      "hoverColor": "#f9f9f9"
     }
-    ],
+  ],
 
 
 
-
-        "wishlist": [
+  
+  "wishlist": [
     {
-        "name": "Crashout Crew",
-        "tags": ["Action", "Co-op", "Driving"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3583210/93b822f30cab98333b8f7f4dd43ce543f4c8b355/capsule_616x353.jpg?t=1759425887",
-        "url": "https://store.steampowered.com/app/3583210/Crashout_Crew/",
-        "hoverColor": "#47a6f9"
+      "name": "Crashout Crew",
+      "tags": [
+        "Action",
+        "Co-op",
+        "Driving"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3583210/93b822f30cab98333b8f7f4dd43ce543f4c8b355/capsule_616x353.jpg?t=1759425887",
+      "url": "https://store.steampowered.com/app/3583210/Crashout_Crew/",
+      "hoverColor": "#47a6f9"
     },
     {
-        "name": "Mage Arena",
-        "tags": ["PvP"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3716600/e245a7cf3cadf5331c1155b6c082a38fe01a2ae9/capsule_616x353.jpg?t=1754585254",
-        "url": "https://store.steampowered.com/app/3716600/Mage_Arena/",
-        "hoverColor": "#9b7c65"
+      "name": "Mage Arena",
+      "tags": [
+        "PvP"
+      ],
+      "players": "1-10",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3716600/e245a7cf3cadf5331c1155b6c082a38fe01a2ae9/capsule_616x353.jpg?t=1754585254",
+      "url": "https://store.steampowered.com/app/3716600/Mage_Arena/",
+      "hoverColor": "#9b7c65"
     },
     {
-        "name": "A Gentleman's Dispute",
-        "tags": ["PvP", "Shooter"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820700/3d095261c525d063f2044461fc8baddc9d8b0266/capsule_616x353.jpg?t=1759166855",
-        "url": "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/?curator_clanid=4777282",
-        "hoverColor": "#f44336"
+      "name": "A Gentleman's Dispute",
+      "tags": [
+        "PvP",
+        "Shooter"
+      ],
+      "players": "2-8",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820700/3d095261c525d063f2044461fc8baddc9d8b0266/capsule_616x353.jpg?t=1759166855",
+      "url": "https://store.steampowered.com/app/2820700/A_Gentlemens_Dispute/?curator_clanid=4777282",
+      "hoverColor": "#f44336"
     },
     {
-        "name": "Demonologist",
-        "tags": ["Co-op", "Spooky"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1929610/capsule_616x353.jpg?t=1751279240",
-        "url": "https://store.steampowered.com/app/1929610/Demonologist",
-        "hoverColor": "#8b0000"
+      "name": "Demonologist",
+      "tags": [
+        "Co-op",
+        "Spooky"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1929610/capsule_616x353.jpg?t=1751279240",
+      "url": "https://store.steampowered.com/app/1929610/Demonologist",
+      "hoverColor": "#8b0000"
     },
     {
-        "name": "Grounded",
-        "tags": ["Survival", "Co-op"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/962130/capsule_616x353.jpg?t=1727719725",
-        "url": "https://store.steampowered.com/app/962130/Grounded",
-        "hoverColor": "#90ee90"
+      "name": "Grounded",
+      "tags": [
+        "Survival",
+        "Co-op"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/962130/capsule_616x353.jpg?t=1727719725",
+      "url": "https://store.steampowered.com/app/962130/Grounded",
+      "hoverColor": "#90ee90"
     },
     {
-        "name": "Sledding Game",
-        "tags": ["PvP", "Sport"],
-        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3438850/b6d53cfeb297d0a5f481d72b390a749d59fdcf99/capsule_616x353.jpg?t=1758903286",
-        "url": "https://store.steampowered.com/app/3438850/Sledding_Game",
-        "hoverColor": "#87ceeb"
+      "name": "Sledding Game",
+      "tags": [
+        "PvP",
+        "Sport"
+      ],
+      "players": "1-4",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3438850/b6d53cfeb297d0a5f481d72b390a749d59fdcf99/capsule_616x353.jpg?t=1758903286",
+      "url": "https://store.steampowered.com/app/3438850/Sledding_Game",
+      "hoverColor": "#87ceeb"
     }
-        ]
-    }
+  ]
+}
